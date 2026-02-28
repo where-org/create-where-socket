@@ -74,7 +74,8 @@ const main = async () => {
 
   console.log(`
   cd ${packageName}
-  npm i
+  npm install
+  # Before starting, install the required where-socket-app modules and edit config/socket-app.yaml.
   npm start`);
 
 };
