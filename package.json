@@ -1,6 +1,6 @@
 {
   "name": "create-where-socket",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Scaffold a new where-socket project",
   "license": "MIT",
   "author": "Masafumi Sasahara <masafumi@sashara.io> (https://github.com/masafumi-sasahara/)",
@@ -13,6 +13,9 @@
   "bin": {
     "create-where-socket": "index.js"
   },
+  "keywords": [
+    "where-socket", "websocket", "ws"
+  ],
   "dependencies": {
     "fs-extra": "^11.1.1",
     "prompts": "^2.4.2"
