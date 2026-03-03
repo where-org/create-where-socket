@@ -1,7 +1,9 @@
 # create-where-socket
+
 Scaffold a new where-socket project.
 
 ## Getting Started
+
 ```sh
 npm create where-socket@latest [where-socket name]
 

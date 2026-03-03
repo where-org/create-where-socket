@@ -15,7 +15,7 @@ const main = async () => {
         socketAppGeneralPackage = { name: '@where-org/where-socket-app-general', version: '^2.0.0', };
 
   // config
-  const socketAppGeneralConfig = { src: 'config/socket-app.yaml.general', dest: 'config/socket-app.yaml', };
+  const socketAppConfig = ['config/socket-app.yaml'];
 
   // args
   const { values, positionals } = parseArgs({
@@ -52,8 +52,10 @@ const main = async () => {
         destDir = path.resolve(process.cwd(), packageName);
 
   fs.copySync(srcDir, destDir, {
-    filter: v => !(v.indexOf(socketAppGeneralConfig.src) > -1)
+    filter: (v1) => !socketAppConfig.some((v2) => v1.includes(v2)),
   });
+
+  fs.writeFileSync(path.resolve(destDir, socketAppConfig[0]), '');
 
   // package.json
   const packageJsonPath = path.resolve(destDir, 'package.json'),
@@ -62,10 +64,13 @@ const main = async () => {
   packageJson.dependencies[socketPackage.name] = socketPackage.version;
 
   if (module || result.module) {
+
     packageJson.dependencies[socketAppGeneralPackage.name] = socketAppGeneralPackage.version;
 
-    const { src, dest } = socketAppGeneralConfig;
-    fs.copySync(path.resolve(srcDir, src), path.resolve(destDir, dest));
+    socketAppConfig.forEach(v => (
+      fs.copySync(path.resolve(srcDir, v), path.resolve(destDir, v))
+    ));
+
   }
 
   fs.writeFileSync(

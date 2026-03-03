@@ -1,7 +1,0 @@
-general:
-  app:
-    module: '@where-org/where-socket-app-general'
-    credential:
-      broadcast: false
-      notification: true
-      loopback: false

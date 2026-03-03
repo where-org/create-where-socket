@@ -1,6 +1,6 @@
 {
   "name": "create-where-socket",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Scaffold a new where-socket project",
   "license": "MIT",
   "author": "Masafumi Sasahara <masafumi@sashara.io> (https://github.com/masafumi-sasahara/)",
